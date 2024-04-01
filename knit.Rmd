@@ -1,0 +1,79 @@
+---
+title: "R"
+author: "Divya"
+date: "2024-03-31"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+## *Dataset* 'quakes'
+
+The following code loads data and creates a scatter plot of data of earthquakes in Fiji. 
+```{r}
+library(datasets)
+data(quakes)
+pairs(quakes, main = "Fiji Earthquakes, N = 1000",col=rainbow(12), cex.main = 1.5, pch = ".")
+
+```
+
+## *Dataset* 'pressure'
+The following code loads data of dataset 'pressure', summarizes the dataset and plots the relationship between temperature in degrees celsius and mercury pressure in mm of Hg.
+```{r}
+library(datasets)
+data(pressure)
+summary(pressure)
+plot(pressure, xlab = "Temperature (deg C)",
+     ylab = "Pressure (mm of Hg)",
+     main = "pressure data: Vapor Pressure of Mercury")
+plot(pressure, xlab = "Temperature (deg C)",  log = "y",
+     ylab = "Pressure (mm of Hg)",
+     main = "pressure data: Vapor Pressure of Mercury")
+```
+
+## Matrices
+
+The matrices 'A' and 'B' are created and 'transpose' function is implemented to them. Two vectors 'a' and 'b' are created and multiplied with matrices.
+```{r}
+A = matrix(1:10, nrow=10)
+B = matrix(1:10, nrow=10)
+A
+#Transpose A and B
+t(A)
+t(B)
+#create two vectors (a and b)
+a = c(1:5)
+b = c(1:10)
+#multiply matrices by vectors
+X = a*A
+Y = b*B
+X
+Y
+```
+
+
+After saving the file, select knit to HTML, which will result in an HTML document containing all the information of YAML metadata, text, code chunks and output which will make it easier to view the output of different kinds of data set in one file.This file can also be knit PDF or word.
+
+
